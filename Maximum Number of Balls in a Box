@@ -1,0 +1,13 @@
+class Solution:
+    def countBalls(self, lowLimit: int, highLimit: int) -> int:
+     
+        counts = dict()
+        for i in range(lowLimit,highLimit + 1):
+            strr = str(i) 
+            list_of_number = list(map(int, strr.strip())) 
+            s =  sum(list_of_number) 
+            counts[s] = counts.get(s,0) + 1
+        
+        all_values = counts.values()
+        max_value = max(all_values)
+        return max_value
