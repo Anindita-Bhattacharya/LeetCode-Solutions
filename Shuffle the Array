@@ -1,0 +1,16 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+    int[] ar=new int[nums.length];
+    int d=0;
+    for(int i=0,j=nums.length/2;i<nums.length/2 && j<nums.length;i++,j++)
+    {
+        ar[d]=nums[i];
+        d+=1;
+        ar[d]=nums[j];
+        d+=1;
+        
+    }
+    return ar;
+}
+  
+    }
