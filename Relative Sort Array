@@ -1,0 +1,28 @@
+class Solution {
+    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+        HashMap<Integer, Integer> appear = new HashMap();
+        HashMap<Integer, Integer> reverse = new HashMap();
+        
+        int n = -arr2.length;
+        for (int i = 0; i < arr2.length ; ++i) {
+            appear.put(arr2[i], n+i);
+            reverse.put(n+i, arr2[i]);
+        }
+        
+        for(int i = 0 ; i < arr1.length ; ++i) {
+            if(appear.containsKey(arr1[i])) {
+                arr1[i] = appear.get(arr1[i]);
+            }
+        }
+        
+        Arrays.sort(arr1);
+        
+        for(int i = 0 ; i < arr1.length ; ++i) {
+            if(reverse.containsKey(arr1[i])) {
+                arr1[i] = reverse.get(arr1[i]);
+            }
+        }
+        
+        return arr1;
+    }
+}
