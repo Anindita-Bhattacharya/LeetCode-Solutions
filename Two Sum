@@ -1,0 +1,71 @@
+Java :
+Brute Force Method (Time Complexity : O(N**2))
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] arr = new int[2];
+        for(int i=0; i<nums.length; ++i){
+            for(int j=i+1; j<nums.length; ++j){
+                if(nums[i]+nums[j] == target){
+                    arr[0] = i;
+                    arr[1] = j;
+                    break;
+                }
+            }
+        }
+        return arr;
+    }
+}
+
+Python :
+Using Two Pointer Approach
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        arr=[]
+        for i,val in enumerate(nums):
+            arr.append([val,i])
+        
+        arr.sort()
+        
+        i=0
+        j=len(nums)-1
+        
+        while i<j:
+            if arr[i][0]+arr[j][0]==target:
+                return [arr[i][1],arr[j][1]]
+            elif arr[i][0]+arr[j][0]<target:
+                i+=1
+            else:
+                j-=1
+                
+Java :
+Using HashMap (Time Complexity : O(N))
+class Solution {
+    public int[] twoSum(int[] nums, int target)
+    {
+        int ans[]=new int[2];
+        HashMap<Integer,Integer>hp=new HashMap<>();
+        for(int i=0;i<nums.length;i++)
+        {
+            int x=target-nums[i];
+            if(hp.containsKey(x))
+            {
+                ans[0]=hp.get(x);
+                ans[1]=i;
+            }
+            else
+            {
+                hp.put(nums[i],i);
+            }
+        }
+        return ans;
+        
+    }
+}
+
+
+
